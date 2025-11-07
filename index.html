@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For Deepika — A Fairytale</title>
+  <meta name="description" content="Bhanu Teja to Deepika — a small, private proposal website." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0f1020;
+      --card: #17182c;
+      --soft: #22233d;
+      --text: #e9ebff;
+      --muted: #a7a9c9;
+      --accent: #ff5d8f;
+      --accent-2: #7c5cff;
+    }
+    *{ box-sizing: border-box }
+    html,body{ margin:0; padding:0; background: radial-gradient(1200px 800px at 100% -10%, rgba(255,93,143,.15), transparent 40%),
+                                 radial-gradient(1000px 600px at -10% 100%, rgba(124,92,255,.15), transparent 40%), var(--bg);
+               color: var(--text); font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto,
+               Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    a{ color: var(--accent); text-decoration: none }
+    a:hover{ text-decoration: underline }.container{ max-width: 980px; margin: 0 auto; padding: 24px }
+.nav{ display:flex; align-items:center; justify-content:space-between; gap:12px }
+.brand{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.5px }
+.logo{ width:36px; height:36px; background: conic-gradient(from 180deg, var(--accent), var(--accent-2)); border-radius:12px; position:relative }
+.logo:after{ content:""; position:absolute; inset:6px; background: var(--bg); filter: blur(6px); border-radius:10px; opacity:.15 }
+.pill{ background: linear-gradient(180deg, #ffffff0f, #0000002a); border: 1px solid #ffffff1f; color: var(--text); padding:10px 14px; border-radius: 999px; font-size:14px }
+
+.hero{ display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 22px; align-items:center; margin-top: 30px }
+.hero-card{ background: linear-gradient(180deg, #ffffff10, #00000025); border:1px solid #ffffff20; border-radius: 28px; padding: 28px; position:relative; overflow:hidden }
+.glow{ position:absolute; width:340px; height:340px; background: radial-gradient(closest-side, #ff5d8f55, transparent); top:-120px; right:-140px; filter: blur(20px) }
+.title{ font-family: "Playfair Display", serif; font-weight:700; font-size: clamp(32px, 4.5vw, 56px); line-height:1.05; margin: 0 0 12px }
+.subtitle{ color: var(--muted); font-size: 15px; line-height:1.6 }
+
+.chip-row{ display:flex; flex-wrap:wrap; gap:10px; margin: 18px 0 0 }
+.chip{ background: var(--soft); border:1px solid #ffffff1a; padding: 8px 12px; border-radius: 999px; font-size: 13px; color:#dcdfff }
+
+.card{ background: linear-gradient(180deg, #ffffff10, #00000025); border:1px solid #ffffff20; border-radius: 24px; padding: 22px }
+.stack{ display:grid; grid-template-columns: repeat( auto-fit, minmax(240px, 1fr) ); gap: 16px; margin-top: 18px }
+
+.btn-row{ display:flex; flex-wrap: wrap; gap: 12px; margin-top: 18px }
+.btn{ padding: 14px 16px; border-radius:14px; border:1px solid #ffffff2a; background: linear-gradient(180deg, #ffffff1a, #00000033); color: var(--text); font-weight: 600; cursor:pointer }
+.btn.primary{ background: linear-gradient(180deg, #ff5d8f, #ff2f78); border-color: #ffffff3a }
+.btn.ghost{ background: transparent }
+.btn:active{ transform: translateY(1px) }
+
+.section{ margin-top: 34px }
+.section h2{ font-size: 22px; letter-spacing:.3px; margin: 0 0 8px }
+.section p{ color: var(--muted); font-size: 15px; margin: 0 0 12px }
+
+.reason{ display:flex; align-items:flex-start; gap:12px; padding:12px; background: #ffffff08; border: 1px solid #ffffff14; border-radius: 14px }
+.reason i{ display:inline-flex; width:28px; height:28px; align-items:center; justify-content:center; background: #0000003a; border: 1px solid #ffffff1f; border-radius: 9px }
+
+.timeline{ display:grid; gap: 12px }
+.tl-item{ display:grid; grid-template-columns: 84px 1fr; gap: 12px; align-items:start }
+.tl-date{ font-weight:700; opacity:.9 }
+.tl-card{ background: #ffffff08; border: 1px solid #ffffff14; border-radius: 16px; padding: 14px }
+
+.footer{ margin: 40px 0 20px; color: #b9bbd8; font-size: 12px; opacity:.9; text-align:center }
+
+.confetti{ position: fixed; inset:0; pointer-events: none; }
+.confetti span{ position:absolute; width:10px; height:16px; background: var(--accent); animation: fall 2.4s linear forwards; transform: rotate(0deg) }
+.confetti span:nth-child(odd){ background: var(--accent-2) }
+@keyframes fall{ to{ transform: translateY(120vh) rotate(720deg); opacity: 0; } }
+
+.dialog{ position: fixed; inset:0; display:none; align-items:center; justify-content:center; backdrop-filter: blur(8px); background: #00000066; z-index: 40 }
+.dialog.open{ display:flex }
+.dialog-card{ width:min(560px, 92%); background: var(--card); border: 1px solid #ffffff22; border-radius: 20px; padding: 20px }
+
+.note{ font-size: 13px; color: #cbd0ff }
+
+.audio{ display:flex; align-items:center; gap:10px; font-size:13px; color:#cbd0ff }
+.audio button{ padding:6px 10px; border-radius: 10px; border:1px solid #ffffff2a; background: transparent; color: var(--text); cursor: pointer }
+
+/* Mobile */
+@media (max-width: 820px){
+  .hero{ grid-template-columns: 1fr; }
+}
+
+  </style>
+</head>
+<body>
+  <!-- ================= CONFIG (edit these) ================= -->
+  <script>
+    const PROPOSAL_CONFIG = {
+      yourName: "Bhanu Teja",
+      herName: "Deepika",
+      proposalDate: new Date().toISOString().slice(0,10),
+      coreLine: "I don’t know why I like you… but I promise you’ll only cry on bed — fairytale.",
+      longMessage: `I know your promise to study hard and win big. I respect that more than anything.
+I’m not here to stop your dreams. I’m here to stand beside you while you build them — slowly, peacefully, at your pace.
+I like you for reasons I can’t fully explain. It’s just there. Real. And I wanted to say it honestly.
+If your answer is no, I’ll still be happy you exist and wish you the best. If someday it’s yes, I’ll make sure our story feels like a fairytale — with real effort, real patience, real love.`,
+      reasons: [
+        "Your focus and discipline inspire me to level up.",
+        "You’re kind without making it a show.",
+        "Even normal days feel better when you’re around.",
+        "You make me believe we can build something real."
+      ],
+      timeline: [
+        { date: "Day 1", text: "The first time we spoke — I knew you were different." },
+        { date: "A small moment", text: "That random joke you made… and my whole day changed." },
+        { date: "Today", text: "I finally said it out loud." }
+      ],
+      playlistUrl: "https://www.youtube.com/watch?v=3bqwXru7Q6M", // Alexander Rybak — Fairytale (official)
+      instagram: "",
+      showMusic: true
+    }
+  </script>
+  <!-- ======================================================= -->  <div class="container">
+    <nav class="nav">
+      <div class="brand"><div class="logo"></div><span id="brandText">From Bhanu Teja</span></div>
+      <div class="audio" id="audioCtrl" style="display:none">
+        <button id="playBtn">▶</button>
+        <span id="trackLabel">Fairytale</span>
+      </div>
+      <a id="instaLink" class="pill" href="#" target="_blank" rel="noreferrer noopener" style="display:none">Instagram</a>
+    </nav><section class="hero">
+  <div class="hero-card">
+    <div class="glow"></div>
+    <h1 class="title">Hi <span id="herName1">Deepika</span>,
+      <br><span style="background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip:text; color: transparent;">this is me being honest.</span>
+    </h1>
+    <p class="subtitle" id="coreLine">I don’t know why I like you… but I promise you’ll only cry on bed — fairytale.</p>
+    <div class="chip-row">
+      <span class="chip" id="dateChip">Proposal • yyyy-mm-dd</span>
+      <span class="chip">No pressure, full respect</span>
+      <span class="chip">Answer at your pace</span>
+    </div>
+    <div class="btn-row">
+      <button class="btn primary" id="btnYes">Say yes</button>
+      <button class="btn" id="btnNotNow">I can’t right now</button>
+      <button class="btn ghost" id="btnTalk">Let’s just talk</button>
+    </div>
+  </div>
+  <div class="card">
+    <h3 style="margin:0 0 8px; font-size:18px">What I’m asking for</h3>
+    <p class="note">A real chance. No rush. No drama. Just two people building honestly.</p>
+    <div class="stack">
+      <div class="reason"><i>🎯</i><div><b>Respect first.</b><br><span class="note">Your studies and peace come before anything.</span></div></div>
+      <div class="reason"><i>🤝</i><div><b>Team work.</b><br><span class="note">We support each other’s goals and growth.</span></div></div>
+      <div class="reason"><i>🧭</i><div><b>Clarity.</b><br><span class="note">If ever it doesn’t feel right, we talk about it.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Why you?</h2>
+  <p>Small reasons that add up to something big.</p>
+  <div class="stack" id="reasons"></div>
+</section>
+
+<section class="section">
+  <h2>Our little timeline</h2>
+  <p>Just a few moments that made me sure.</p>
+  <div class="timeline" id="timeline"></div>
+</section>
+
+<section class="section card">
+  <h2>What I really want to say</h2>
+  <p id="longMsg" style="white-space: pre-line"></p>
+  <div class="btn-row">
+    <a id="playlist" class="btn" href="#" target="_blank" rel="noreferrer noopener" style="display:none">Play “Fairytale”</a>
+  </div>
+</section>
+
+<p class="footer">Built with honesty by <span id="yourName2">Bhanu Teja</span>. © <span id="year"></span></p>
+
+  </div>  <!-- Dialogs -->  <div class="confetti" id="confetti"></div>  <div class="dialog" id="dlgYes">
+    <div class="dialog-card">
+      <h3 style="margin:0 0 8px">You said yes 🥹</h3>
+      <p class="note">Thank you for trusting me. I promise patience, respect, and effort — every single day.</p>
+      <div class="btn-row"><button class="btn" onclick="closeDialog('dlgYes')">Close</button></div>
+    </div>
+  </div>  <div class="dialog" id="dlgNotNow">
+    <div class="dialog-card">
+      <h3 style="margin:0 0 8px">I understand 💙</h3>
+      <p class="note">Thank you for being honest. I’ll still be cheering for you — as a friend, without pressure. If someday the timing feels right, we can revisit this. Until then, focus on your goals. I’m proud of you.</p>
+      <div class="btn-row"><button class="btn" onclick="closeDialog('dlgNotNow')">Close</button></div>
+    </div>
+  </div>  <div class="dialog" id="dlgTalk">
+    <div class="dialog-card">
+      <h3 style="margin:0 0 8px">Let’s talk 😊</h3>
+      <p class="note">Coffee, walk, or a short call — whatever you’re comfortable with. No expectations. Just conversation.</p>
+      <div class="btn-row"><button class="btn" onclick="closeDialog('dlgTalk')">Close</button></div>
+    </div>
+  </div>  <!-- Optional background music: replace the src with an mp3 link you control (or leave empty). Autoplay may require user interaction in browsers. -->  <audio id="bgm" preload="none">
+    <!-- Example: <source src="fairytale.mp3" type="audio/mpeg"> -->
+  </audio>  <script>
+    // Helpers
+    const cfg = PROPOSAL_CONFIG;
+    const $ = (q) => document.querySelector(q);
+    const el = (tag, cls) => { const x = document.createElement(tag); if(cls) x.className = cls; return x }
+
+    // Init dynamic content
+    function init(){
+      $('#brandText').textContent = `From ${cfg.yourName}`;
+      $('#herName1').textContent = cfg.herName;
+      $('#coreLine').textContent = cfg.coreLine;
+      $('#dateChip').textContent = `Proposal • ${cfg.proposalDate}`;
+      $('#longMsg').textContent = cfg.longMessage;
+      $('#yourName2').textContent = cfg.yourName;
+      $('#year').textContent = new Date().getFullYear();
+
+      // reasons
+      const rWrap = $('#reasons');
+      cfg.reasons.forEach((r, i)=>{
+        const box = el('div','reason');
+        const ico = el('i'); ico.textContent = ['✨','🌱','💫','🔥','🌟','💡','🎧','🧩'][i%8];
+        const content = el('div');
+        content.innerHTML = `<b>${r.split('.')[0]}.</b><br><span class="note">${r}</span>`;
+        box.appendChild(ico); box.appendChild(content); rWrap.appendChild(box);
+      });
+
+      // timeline
+      const tWrap = $('#timeline');
+      cfg.timeline.forEach(item=>{
+        const row = el('div','tl-item');
+        row.innerHTML = `<div class="tl-date">${item.date}</div><div class="tl-card">${item.text}</div>`;
+        tWrap.appendChild(row);
+      });
+
+      // playlist button
+      if(cfg.playlistUrl){ const a = $('#playlist'); a.href = cfg.playlistUrl; a.style.display = 'inline-flex'; }
+
+      // instagram link
+      if(cfg.instagram){ const a = $('#instaLink'); a.href = cfg.instagram; a.style.display = 'inline-flex'; }
+
+      // music control
+      if(cfg.showMusic){
+        const ctrl = $('#audioCtrl');
+        const audio = $('#bgm');
+        ctrl.style.display = 'flex';
+        const playBtn = $('#playBtn');
+        playBtn.addEventListener('click', ()=>{
+          if(audio.paused){ audio.play().catch(()=>{}); playBtn.textContent = '⏸'; }
+          else { audio.pause(); playBtn.textContent = '▶'; }
+        });
+      }
+
+      // buttons
+      $('#btnYes').addEventListener('click', ()=>{ openDialog('dlgYes'); confettiBurst(); });
+      $('#btnNotNow').addEventListener('click', ()=> openDialog('dlgNotNow'));
+      $('#btnTalk').addEventListener('click', ()=> openDialog('dlgTalk'));
+    }
+
+    // Dialog helpers
+    function openDialog(id){ document.getElementById(id).classList.add('open'); }
+    function closeDialog(id){ document.getElementById(id).classList.remove('open'); }
+
+    // Confetti
+    function confettiBurst(){
+      const wrap = $('#confetti');
+      for(let i=0;i<80;i++){
+        const s = el('span');
+        s.style.left = Math.random()*100 + 'vw';
+        s.style.animationDelay = (Math.random()*0.8)+'s';
+        s.style.opacity = 0.9;
+        wrap.appendChild(s);
+        setTimeout(()=> s.remove(), 2600);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script></body>
+</html>
