@@ -1,0 +1,130 @@
+/* Mobile-first: main-character theme for Deepu */
+:root{
+  --accent:#ff6b9b;
+  --muted:#7b7b7b;
+  --bg:#fff7fb;
+  --card:#ffffff;
+  --shadow:0 8px 28px rgba(12,12,20,0.08);
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* global */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);-webkit-font-smoothing:antialiased}
+body{display:flex;align-items:center;justify-content:center;padding:12px}
+
+/* Desktop notice phone frame */
+.desktop-notice{display:none;flex-direction:column;align-items:center;gap:14px}
+.phone-frame{width:360px;height:720px;border-radius:34px;background:linear-gradient(180deg,#fff,#fff);box-shadow:0 18px 60px rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.phone-content{padding:18px;text-align:center}
+.phone-tip{font-weight:600;margin-bottom:12px}
+.desktop-hint{color:#666;font-size:14px}
+
+/* App container */
+.app{width:100%;max-width:420px;background:var(--card);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;position:relative}
+
+/* screens */
+.screen{padding:16px}
+.hidden{display:none}
+
+/* top row */
+.top-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.title{font-family:"Great Vibes",cursive;font-size:32px;color:var(--accent);margin:0}
+.icon-btn{background:transparent;border:none;font-size:20px;padding:8px;border-radius:10px}
+
+/* birthday stage */
+.birthday-stage{display:flex;flex-direction:column;align-items:center;gap:14px;padding-bottom:12px}
+.cake{width:180px;height:140px;display:flex;align-items:center;justify-content:center;position:relative}
+.cake-body{width:160px;height:110px;background:linear-gradient(180deg,#fff,#ffeef4);border-radius:14px;border:4px solid #fff;display:flex;align-items:center;justify-content:center;position:relative}
+.frosting{position:absolute;top:6px;left:12px;right:12px;height:22px;background:linear-gradient(90deg,#ffdbe6,#fff);border-radius:12px}
+.candle{position:absolute;top:-18px;width:12px;height:36px;background:#ffd2e1;border-radius:6px;display:flex;align-items:flex-start;justify-content:center}
+.flame{width:10px;height:14px;background:radial-gradient(circle at 30% 30%, #fff,#ffd16a 6px,#ff6b9b 60%);border-radius:50%;box-shadow:0 6px 18px rgba(255,107,155,0.12);transition:transform .36s ease,opacity .36s ease}
+.flame.blown{transform:translateY(-12px) scale(.6);opacity:0}
+.flame.gone{display:none}
+
+/* gift box */
+.gift-box{width:120px;height:110px;border-radius:10px;background:linear-gradient(180deg,#fff1f6,#ffdfe9);display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer}
+.gift-lid{position:absolute;top:-12px;width:90px;height:36px;background:linear-gradient(90deg,#fff6,#ffd3e2);border-radius:8px;transform-origin:center;transition:transform .45s cubic-bezier(.2,.9,.24,1)}
+.gift-box.opened .gift-lid{transform:translateY(-22px) rotate(-6deg)}
+.gift-body{font-size:28px}
+
+/* birthday message */
+.birthday-message{width:100%;min-height:84px;background:#fff;padding:12px;border-radius:10px;border:1px solid #ffe9f0;color:#333;overflow:auto;font-size:15px}
+
+/* gift photo reveal */
+.gift-photo-wrap{width:84%;max-width:320px;margin-top:12px;opacity:0;transform:scale(.98);transition:opacity .6s ease,transform .6s ease;display:none;align-items:center;justify-content:center}
+.gift-photo-wrap.reveal{display:flex;opacity:1;transform:scale(1)}
+.gift-photo{width:100%;border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,0.12);border:6px solid rgba(255,255,255,0.6);filter:blur(0.2px);}
+
+/* continue button */
+.btn{padding:12px 18px;border-radius:12px;border:none;font-weight:700;font-size:16px}
+.btn-primary{background:linear-gradient(90deg,#ff8fb0,#ff5a8a);color:#fff}
+.btn-secondary{background:#f4f4f6;color:#333;border:1px solid #eee}
+.btn-quiet{background:transparent;border:1px dashed #eee;color:#444}
+
+/* balloons */
+.float-layer{position:absolute;inset:0;pointer-events:none;z-index:6}
+.balloon{position:absolute;width:42px;height:52px;background:linear-gradient(180deg,#ffd9e6,#ff7aa8);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;box-shadow:0 8px 16px rgba(255,107,155,0.12);animation:rise 8s linear infinite}
+.balloon.pop{transform:scale(.2);opacity:0;transition:transform .28s ease,opacity .28s ease}
+@keyframes rise{0%{transform:translateY(20vh) rotate(0)}100%{transform:translateY(-120vh) rotate(360deg)}}
+
+/* proposal */
+.proposal-top{text-align:center;padding:8px}
+.proposal-title{font-size:20px;margin:6px 0}
+.proposal-content{padding:8px;max-height:50vh;overflow:auto}
+.chapters .chapter{padding:10px;border-bottom:1px dashed #f3d6df}
+.chapter-photo{display:flex;align-items:center;justify-content:center;padding:12px}
+.chapter-photo-img{width:88%;border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,0.12);}
+
+/* hero photo */
+.proposal-hero{display:flex;align-items:center;justify-content:center;padding:12px;opacity:0;transform:translateY(6px);transition:opacity .6s,transform .6s}
+.proposal-hero.show{opacity:1;transform:translateY(0)}
+.hero-photo-wrap{position:relative;display:inline-block}
+.hero-photo{width:78%;max-width:300px;border-radius:18px;box-shadow:0 20px 40px rgba(255,107,155,0.12);border:8px solid rgba(255,255,255,0.6);transition:transform .9s ease}
+.hero-zoom{transform:scale(1.06) translateY(-6px) !important}
+.hero-overlay{position:absolute;left:0;right:0;bottom:12px;text-align:center;color:#fff;font-weight:700;text-shadow:0 6px 20px rgba(0,0,0,0.25)}
+
+/* floating sticker */
+.floating-sticker{position:fixed;left:10px;top:14vh;width:56px;height:56px;border-radius:50%;overflow:hidden;box-shadow:0 14px 36px rgba(0,0,0,0.12);z-index:40;transition:transform .9s;display:none}
+.floating-sticker.float-in{display:block;animation:floatSticker 6s ease-in-out infinite}
+@keyframes floatSticker{0%{transform:translateY(0)}50%{transform:translateY(-12px)}100%{transform:translateY(0)}}
+.sticker-img{width:100%;height:100%;object-fit:cover}
+
+/* draggable heart */
+.draggable-heart{position:fixed;right:12px;bottom:12px;width:48px;height:48px;border-radius:50%;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg,#fff,#ffd9e8);font-size:18px;color:#d23b67;box-shadow:0 10px 30px rgba(210,59,103,0.14);z-index:80}
+.draggable-heart.dragging{transform:scale(1.03)}
+
+/* confetti */
+.confetti-wrap{position:fixed;inset:0;pointer-events:none;z-index:70}
+.confetti{position:absolute;width:8px;height:14px;border-radius:2px}
+
+/* hearts */
+.click-heart{position:fixed;width:34px;height:34px;border-radius:50%;background:linear-gradient(180deg,#fff,#ffdfe8);box-shadow:0 8px 18px rgba(255,90,138,0.12);pointer-events:none;z-index:90;animation:popRise 1.6s ease forwards}
+@keyframes popRise{0%{transform:translateY(0) scale(.2);opacity:0}10%{opacity:1;transform:translateY(-6vh) scale(1.05)}70%{transform:translateY(-36vh) scale(.95)}100%{transform:translateY(-60vh) scale(.88);opacity:0}}
+
+/* floating hearts */
+.floating-heart{position:fixed;bottom:-12vh;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #fff,#ffbfd1 6px,#ff6b9b 40%);pointer-events:none;z-index:2}
+
+/* preface */
+.preface-wrap{background:linear-gradient(180deg,#fff8fb,#fff);padding:12px;border-radius:12px;border:1px solid #ffe9f0;color:#333}
+
+/* toast */
+.toast{position:fixed;left:12px;right:12px;bottom:84px;padding:10px;background:#111;color:white;border-radius:10px;opacity:0;transform:translateY(10px);transition:opacity .24s,transform .24s;pointer-events:none}
+.toast.visible{opacity:0.96;transform:translateY(0)}
+
+/* no-script */
+.noscript-warning{padding:12px;background:#fff1f6;border-radius:10px;color:#9b2b4a;margin:10px}
+
+/* responsive */
+@media (max-width:360px){
+  .cake{width:150px;height:120px}
+  .title{font-size:28px}
+  .hero-photo{width:86%}
+  .floating-sticker{left:8px;top:20vh}
+}
+
+/* show desktop notice on wide screens */
+@media (min-width:700px){
+  body{background:linear-gradient(180deg,#f4f6f8,#fff)}
+  .desktop-notice{display:flex}
+}
